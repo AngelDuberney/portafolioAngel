@@ -1,0 +1,632 @@
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin-top: 3%;
+    margin-right: 3%;
+    margin-left: 3%;
+    background-image: url(assets/fondo-de-ladrillos-negro.webp);
+}
+
+/* Estilo del encabezado */
+header {
+    font-size: 1.3rem;
+    text-align: end;
+}
+
+/* Estilo de la lista de navegación */
+.lista-header {
+    list-style: none; /* Elimina los puntos de la lista */
+    display: flex;    /* Presenta los elementos horizontalmente */
+    justify-content: flex-end; /* Alinea la lista a la derecha */
+    padding: 0;
+}
+
+.lista-header li {
+    margin: 0 15px; /* Espaciado entre los elementos de la lista */
+}
+
+.lista-header a {
+    text-decoration: none;
+    font-family: "Righteous", sans-serif;
+    background-color: transparent;
+    color: #c5c8e6;
+    border-radius: 10px;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+.lista-header a:hover {
+    color: #15161f;
+}
+
+/* .texto-tachado {
+    font-family: 'Righteous', sans-serif;
+    color: #c5c8e6;
+    font-size: 1.3rem;
+    position: relative;
+    display: inline-block;
+} */
+
+/* .texto-tachado::before {
+    content: "";
+    position: absolute;
+    top: 50%; 
+    left: 0;
+    width: 100%;
+    height: 9px;
+    background: rgb(150, 1, 1);
+    transform: rotate(-2deg); Le da un toque más desordenado
+    opacity: 0.7;
+} */
+
+
+.contenedor-principal::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    background-image: url(/assets/foto-angel.png);
+    background-position: center center;
+    opacity: 0.3; /* Transparencia de la imagen */
+    z-index: -1; /* Coloca la imagen detrás del contenido */
+    background-size: 40%; /* Aumenta al 150% del tamaño original */
+
+}
+
+.contenedor-principal {
+    margin-top: 10%;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: 100; */
+    font-style: normal;
+    font-size: 1.5rem;
+    color: #c5c8e6;
+    text-align: center;
+    top: 20%;
+    left: 0%;
+    letter-spacing: 20px;
+    /* width: 100%; */
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; */
+    align-items: center;
+    /* border-radius: 20px; */
+    /* gap: 20px; */
+    background: none; /* Elimina la imagen de fondo original */
+}
+
+.comentario-principal {
+    margin-top: 28%;
+    letter-spacing: 0.4rem;
+    color: #bdc3ce;
+    display: inline-block;
+    position: relative;
+    overflow: hidden; /* Evita que el texto genere scroll */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+}
+  
+.comentario-principal span {
+display: inline-block;
+position: relative;
+}
+
+@keyframes moveRandom {
+0% {
+    transform: translateX(0);
+}
+50% {
+    transform: translateX(var(--random-x, 0px));
+}
+100% {
+    transform: translateX(0);
+}
+}
+  
+/* Estilo general About me */
+
+/* Estilo general para la imagen */
+#sobre-mi {
+    padding: 0;
+    border-radius: 20px;
+  }
+  
+  /* Contenedor principal */
+  .contenedor-img {
+    position: sticky;
+    top: 0;
+    margin: 5% auto;
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+    font-family: "Righteous", sans-serif;
+  }
+  
+  /* Imagen con efecto de intermitencia */
+  .img-about-me {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.4s ease;
+    animation: parpadeo 0.5s infinite; /* Animación de parpadeo */
+  }
+  
+  /* Texto de hover */
+  .hover-text {
+    width: 100%;
+    position: absolute;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
+    font-size: 1.3rem;
+    font-weight: 200;
+    text-align: center;
+    color: rgb(158, 162, 212);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    border-radius: 10px;
+  }
+  
+  /* Efecto hover en imagen */
+  .contenedor-img:hover .img-about-me {
+    opacity: 0; /* Oculta la imagen al hacer hover */
+    animation: none; /* Detiene el parpadeo */
+  }
+  
+  .contenedor-img:hover .hover-text {
+    opacity: 1; /* Muestra el texto al hacer hover */
+  }
+  
+  /* Animación de parpadeo */
+  @keyframes parpadeo {
+    0%, 100% {
+      opacity: 1; /* Imagen visible */
+    }
+    20%, 40%, 60% {
+      opacity: 0.4; /* Imagen tenue */
+    }
+    80% {
+      opacity: 0.1; /* Imagen casi invisible */
+    }
+  }
+        
+  .titulo-experiencia {
+    margin-top: 10%;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    color: rgb(158, 162, 212);
+    font-family: "Josefin Sans", sans-serif;
+    margin-bottom: 10px;
+    opacity: 0; /* Para la animación */
+    animation: aparecerTitulo 2s ease-out forwards;
+}
+
+@keyframes aparecerTitulo {
+    from {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.ventana {
+    width: 98%;
+    height: auto; /* Ajustamos para que se ajuste automáticamente */
+    overflow: hidden;
+    background-color: transparent;
+    color: rgb(158, 162, 212);
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column; /* Adaptación móvil por defecto */
+    text-align: justify;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 1.3rem;
+}
+
+.experiencia-reclutamiento, .experiencia-tecnologias {
+    display: flex;
+    flex-direction: row; /* Layout horizontal por defecto */
+    gap: 10%;
+    margin-top: 10%;
+}
+
+.tarjeta-reclutamiento, .tarjeta-tecnologias {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+    font-weight: 200;
+    position: relative;
+    opacity: 0;
+}
+
+.aparecer-reclutamiento {
+    animation: desdeDerecha 4s ease-out forwards;
+}
+
+.aparecer-tecnologias {
+    animation: desdeIzquierda 4s ease-out forwards;
+}
+
+@keyframes desdeDerecha {
+    from {
+        transform: translateX(100vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    }
+    
+    @keyframes desdeIzquierda {
+    from {
+        transform: translateX(-100vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    }
+    
+
+.titulo-tecnologia-y-yo {
+    margin-top: 15%;
+    color: rgb(158, 162, 212);
+    font-size: 1.8rem;
+    letter-spacing: 0.3rem;
+    font-family: "Josefin Sans", sans-serif;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.comentario-tecnologia-y-yo {
+    margin-top: 10%;
+    margin-left: 10%;
+    color: rgb(158, 162, 212);
+    width: 80%;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    line-height: 1.7;
+   
+
+}
+
+/* Sección: Contacto */
+#contacto {
+    margin-top: 10%;
+    margin-left: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #111;
+    width: 70%;
+}
+
+.contenedor-contacto {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    width: 80%;
+    gap: 20px;
+}
+
+.texto-contacto {
+    flex: 1;
+    max-width: 90%;
+}
+
+.titulo-contacto {
+    margin-top: 7%;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    color: rgb(158, 162, 212);
+    font-family: "Josefin Sans", sans-serif;
+    margin-bottom: 10px;
+}
+
+.comentario-contacto {
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+    line-height: 1.5;
+    color: rgb(158, 162, 212);
+    padding: 10px 0;
+}
+
+
+
+form {
+    flex: 1;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #D3D3D3;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #E0E0E0;
+}
+
+form button {
+    background-color: #6FA4FF;
+    color: #FFF;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #456899;
+}
+
+/* General del footer */
+.footer {
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #000000;
+    color: #6FA4FF;
+    padding: 0px;
+    width: 100%;
+    
+}
+
+.seccion-botones {
+    margin-top: 1%;
+    display: flex;  
+    width: 100%;
+    justify-content: center;
+    gap: 10%;
+    
+}
+
+
+.columna-info-contacto {
+    text-align: center;
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
+
+/* Estilo de los botones */
+
+
+.boton {
+    /* height: 2rem; */
+    /* display: inline-block; */
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+.boton a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.boton:hover {
+    background: linear-gradient(135deg, #6FA4FF, #4A90E2, #1C7ED6);
+    transform: translateY(-2px);
+}
+
+
+/* Media Queries */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    header {
+        font-size: 1.3rem;
+        text-align: end;
+    }
+
+    .contenedor-principal::before {
+    height: 50%;
+    background-size: 50%; /* Aumenta al 150% del tamaño original */
+    }
+
+    .contenedor-principal {
+        margin-top: 40%;
+        font-size: 2.5rem;
+    
+    }
+
+    .comentario-principal {
+    /* margin-top: 55%; */
+    letter-spacing: 0.2rem;
+    font-size: 1.3rem;
+    }
+
+    .comentario-tecnologia-y-yo {
+    text-align: center;
+    }
+
+    .contenedor-formulario {
+        width: 70%;
+        display: flex;
+        
+    }
+
+
+
+    /* sección del comentario y formulario */
+
+    .seccion-contacto {
+    display: flex;
+    flex-direction: column;
+    }
+    .contenedor-contacto {
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+       
+    }
+
+
+/* footer */
+
+.footer {
+    display: flex;
+    flex-direction: column-reverse;
+    font-family: "Josefin Sans", sans-serif;
+    background-color: #070707;
+    color: #6FA4FF;
+    width: 100%;
+    align-items: center;
+    
+    }
+    
+    .columna-info-contacto {
+        width: 100%;
+        margin-top: 0%;
+        text-align: center;
+       
+    }
+
+    .seccion-botones {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 5%;
+
+    }
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+
+    header {
+        font-size: 0.8rem;
+    }
+    .lista-header li {
+        margin: 0 0.1rem; /* Espaciado entre los elementos de la lista */
+    }
+
+    .contenedor-principal::before {
+        content: "";
+        position: absolute;
+        top: -25%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        opacity: 0.3; /* Transparencia de la imagen */
+        z-index: -1; /* Coloca la imagen detrás del contenido */
+        background-size: 100%; /* Aumenta al 150% del tamaño original */
+        background-repeat: no-repeat;
+    }
+
+    .contenedor-principal {
+        margin-top: 55%;
+        font-size: 1rem;
+        left: 0%;
+        letter-spacing: 0.3rem;
+        /* width: 100%; */
+        height: 70%;
+           display: flex;
+        flex-direction: column;
+        /* overflow: hidden; */
+        align-items: center;
+        /* border-radius: 20px; */
+        /* gap: 20px; */
+        background: none; /* Elimina la imagen de fondo original */
+    }
+
+    .comentario-principal {
+        margin-top: 50%;
+        letter-spacing: 0.1rem;
+    }
+
+    .contenedor-img-about-me{
+        margin-top: 20%;
+    }
+
+    .titulo-experiencia{
+        margin-top: 15%;
+    }
+
+    /* seccion tarjetas */
+
+    .experiencia-reclutamiento, .experiencia-tecnologias {
+        flex-direction: column; /* Columna por defecto en móviles */
+        align-items: center; /* Centramos */
+        gap: 20px; /* Espaciado entre tarjetas */
+    }
+    
+    .tarjeta-reclutamiento, .tarjeta-tecnologias {
+        width: 90%; /* Tarjetas ocupan casi todo el ancho */
+        height: auto;
+    }
+
+    /* estilos formulario */
+
+    .seccion-contacto {
+        display: flex;
+        width: 100%;
+              
+    }
+
+    .contenedor-contacto {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+
+    }
+    
+    .comentario-contacto{
+        letter-spacing: 0.1rem;
+        text-align: center;
+        font-size: 0.7rem;
+        width: 100%;
+        padding: 0%;
+        word-spacing: 0.1rem;
+    }
+
+
+
+}
